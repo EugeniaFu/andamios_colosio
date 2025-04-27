@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recuperar Contraseña</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/login.css') }}" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2e0f1f65c.js" crossorigin="anonymous"></script>
+  <style>
+    .input-icon {
+      position: relative;
+    }
+
+    .input-icon input {
+      padding-left: 40px;
+    }
+
+    .input-icon i {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      color: #a00;
+    }
+
+    .form-box {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid login-container d-flex justify-content-center align-items-center" style="height: 100vh; background-image: url('{{ url_for('static', filename='img/fondo_empresa.jpg') }}'); background-size: cover; background-position: center;">
+    <div class="form-box">
+      <form method="POST" action="{{ url_for('recuperar') }}">
+        <h5 class="text-center mb-4">Introduzca su correo electrónico registrado</h5>
+
+        <div class="mb-3 input-icon">
+          <i class="fas fa-envelope"></i>
+          <input
+            type="email"
+            class="form-control {% if estado_verificacion == 'no_existe' %}is-invalid{% elif estado_verificacion == 'verificado' %}is-valid{% endif %}"
+            name="correo"
+            placeholder="Correo"
+            required
+          >
+        </div>
+
+        {% if estado_verificacion == 'verificado' %}
+          <div class="alert alert-success d-flex align-items-center mt-2" role="alert">
+            <i class="fas fa-check-circle me-2"></i> Correo verificado correctamente.
+          </div>
+        {% elif estado_verificacion == 'no_existe' %}
+          <div class="alert alert-danger d-flex align-items-center mt-2" role="alert">
+            <i class="fas fa-times-circle me-2"></i> El correo ingresado no existe.
+          </div>
+        {% endif %}
+
+        <div class="d-grid mt-3">
+          <button type="submit" class="btn btn-danger rounded-pill">Siguiente</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

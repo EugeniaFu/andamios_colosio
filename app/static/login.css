@@ -1,0 +1,21 @@
+body {
+    background-image: url('img/fondo.jpg'); /* Cambia 'fondo_empresa.jpg' por tu imagen */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 90vh;
+    margin: 0;
+}
+
+.login-container {
+    backdrop-filter: blur(2px); /* Opcional: desenfocar un poco el fondo */
+}
+
+.login-form {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}

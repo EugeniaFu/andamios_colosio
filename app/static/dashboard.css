@@ -1,0 +1,48 @@
+body {
+    background-color: #f8f9fa;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    background-color: #8B0000;
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .card-custom {
+    border: 1px solid #8B0000;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card-custom:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .calendar-container {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-nueva-renta {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    background-color: #8B0000;
+    border: none;
+  }
+  

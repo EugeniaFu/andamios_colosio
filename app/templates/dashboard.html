@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - Andamios Colosio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
+  <link href="/static/dashboard.css" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-2 sidebar d-flex flex-column">
+      <img src="/static/img/logo_colosio.png" class="mb-4" style="width:100%; cursor:pointer;">
+      <a href="#">Cliente</a>
+      <a href="#">Rentas</a>
+      <a href="#">Inventario</a>
+      <a href="#">Sistema de Pago</a>
+      <a href="#">Informes</a>
+      <a href="#">Ajustes</a>
+      <a href="#">Usuario</a>
+    </div>
+
+    <!-- Content -->
+    <div class="col-md-10 p-4 position-relative">
+      <div class="row">
+        <!-- Cards -->
+        <div class="col-md-4">
+          <div class="card-custom" title="Rentas actualmente activas">
+            <h5>Rentas Activas</h5>
+            <p>Alex - 01/04/2025</p>
+            <p>Anahí - 01/04/2025</p>
+          </div>
+          <div class="card-custom" title="Rentas que están próximas a vencer">
+            <h5>Próximas a Vencer</h5>
+            <p>Carlos - 02/04/2025</p>
+            <p>José - 02/04/2025</p>
+          </div>
+          <div class="card-custom" title="Rentas que ya han vencido">
+            <h5>Vencidas</h5>
+            <p>Fernando - 01/04/2025</p>
+          </div>
+        </div>
+
+        <!-- Calendar -->
+        <div class="col-md-8">
+          <div class="calendar-container">
+            <div id="calendar"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botón Nueva Renta -->
+      <a href="/nueva-renta" class="btn btn-danger btn-lg rounded-pill btn-nueva-renta">
+        <i class="fas fa-plus"></i> Nueva Renta
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
+<script>
+  window.addEventListener('load', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      events: [
+        { title: 'Alex', date: '2025-04-01', color: 'green', description: 'Renta activa' },
+        { title: 'Anahí', date: '2025-04-01', color: 'green', description: 'Renta activa' },
+        { title: 'Carlos', date: '2025-04-02', color: 'orange', description: 'Próxima a vencer' },
+        { title: 'José', date: '2025-04-02', color: 'orange', description: 'Próxima a vencer' },
+        { title: 'Fernando', date: '2025-04-01', color: 'red', description: 'Vencida' }
+      ],
+      eventDidMount: function(info) {
+        if (info.event.extendedProps.description) {
+          var tooltip = new bootstrap.Tooltip(info.el, {
+            title: info.event.extendedProps.description,
+            placement: 'top',
+            trigger: 'hover',
+            container: 'body'
+          });
+        }
+      }
+    });
+    calendar.render();
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #4D697A; /* Fondo principal azul-gris oscuro */
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo como botón */
+.logo-button {
+  display: block;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s;
+  cursor: pointer;
+  border: none;
+  text-decoration: none; /* Si usas <a> */
+}
+
+.logo-button:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.02);
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+}
+
+/* Elementos del menú */
+.menu-item {
+  background: none;
+  border: none;
+  color: white;
+  padding: 15px 10px;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.menu-item:hover {
+  background-color: #3A4F5B;
+}
+
+.menu-item img.icono {
+  width: 64px;
+  height: 64px;
+  margin-right: 10px;
+}
+
+/* Elemento deshabilitado */
+.menu-item.disabled {
+  background-color: #2c3b44;
+  color: #ccc;
+  cursor: not-allowed;
+  pointer-events: none;
+}

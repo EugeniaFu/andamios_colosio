@@ -8,7 +8,7 @@ class Config:
     MYSQL_HOST = 'localhost'
     MYSQL_USER = 'root'
     MYSQL_PASSWORD = '123456'  # Cambia aquí tu contraseña real
-    MYSQL_DB = 'andamios_c'
+    MYSQL_DB = 'sistemarentas'
     SECRET_KEY = os.urandom(24)
 
     MAIL_SERVER = 'smtp.gmail.com'

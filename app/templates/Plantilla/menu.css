@@ -6,7 +6,7 @@ body {
 
 .sidebar {
   width: 220px;
-  background-color: #4D697A; /* Fondo principal azul-gris oscuro */
+  background-color: #9996c7; /* Fondo principal azul-gris oscuro */
   color: white;
   height: 100vh;
   display: flex;
@@ -55,7 +55,7 @@ body {
 }
 
 .menu-item:hover {
-  background-color: #3A4F5B;
+  background-color: #8f8bd9;
 }
 
 .menu-item img.icono {
@@ -66,7 +66,7 @@ body {
 
 /* Elemento deshabilitado */
 .menu-item.disabled {
-  background-color: #2c3b44;
+  background-color: #8f8bd9;
   color: #ccc;
   cursor: not-allowed;
   pointer-events: none;

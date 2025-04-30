@@ -1,80 +1,47 @@
-<!--pagina principal de clientes, con buscador y boton de añadir cliente-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rentas - Colosio</title>
-  <link rel="stylesheet" href="/app/static/renta.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clientes - Colosio</title>
+  <link rel="stylesheet" href="/andamios_colosio/app/static/cliente.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<div class="sidebar">
-  <img src="/app/static/img/logo.png" alt="Colosio Logo" class="logo">
-  
-  <div class="menu-item">
-    <img src="/app/static/img/clientes_icono.png" alt="Cliente Icono" class="icono"> Cliente
-  </div>
-  <div class="menu-item">
-    <img src="/app/static/img/rentas_icono.png" alt="Rentas Icono" class="icono"> Rentas
-  </div>
-  <div class="menu-item">
-    <img src="/app/static/img/inventario_icono.png" alt="Inventario Icono" class="icono"> Inventario
-  </div>
-  <div class="menu-item disabled">
-    <img src="/app/static/img/sistema_pago_icono.png" alt="Sistema Pago Icono" class="icono"> Sistema de Pago
-  </div>
-  <div class="menu-item">
-    <img src="/app/static/img/informes_icono.png" alt="Informes Icono" class="icono"> Informes
-  </div>
-
-  <div style="margin-top: auto; width: 100%;">
-    <div class="menu-item">
-      <img src="/app/static/img/ajustes_icono.png" alt="Ajustes Icono" class="icono"> Ajustes
+  <div class="sidebar">
+    <div class="logo">
+      <img src="logo.png" alt="Logo" />
     </div>
-    <div class="menu-item">
-      <img src="/app/static/img/usuario_icono.png" alt="Usuario Icono" class="icono"> Usuario
+    <nav>
+      <ul>
+        <li><a href="#"><span>👤</span> Cliente</a></li>
+        <li><a href="#"><span>💲</span> Rentas</a></li>
+        <li><a href="#"><span>📦</span> Inventario</a></li>
+        <li><a href="#"><span>💳</span> Sistema de Pago</a></li>
+        <li><a href="#"><span>📊</span> Informes</a></li>
+        <li><a href="#"><span>⚙️</span> Ajustes</a></li>
+        <li><a href="#"><span>👥</span> Usuario</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="main">
+    <div class="top-bar">
+      <button class="back-button">⬅</button>
+      <h2>Clientes</h2>
+    </div>
+
+    <div class="client-section">
+      <h3>Buscar Cliente Registrado</h3>
+      <div class="search-container">
+        <input type="text" placeholder="ID inválido o nombre, ingresalo de nuevo">
+        <button class="search-btn">🔍</button>
+      </div>
+      <button class="new-client-btn">➕ Nuevo Cliente</button>
+      <div class="watermark">PUNTALES Y ANDAMIOS<br><strong>COLOSIO</strong><br>Renta de Equipo Ligero</div>
     </div>
   </div>
-</div>
-
-<div class="content">
-  <div class="tabs">
-    <div class="tab active">Rentas</div>
-    <div class="tab">Entradas</div>
-    <div class="tab">Salidas</div>
-  </div>
-
-  <div class="search-bar">
-    <input type="text" placeholder="Buscar...">
-    <button class="new-rent-button">+ Nueva Renta</button>
-  </div>
-
-  <div class="filters">
-    <button>Todas</button>
-    <button>Próximos a vencer</button>
-    <button>Retrasados</button>
-    <button>Completadas</button>
-  </div>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Folio</th>
-        <th>Nombre</th>
-        <th>Estatus</th>
-        <th>Fecha Entrada</th>
-        <th>Fecha Salida</th>
-        <th>Monto</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td colspan="6" style="height: 50px;"></td></tr>
-      <tr><td colspan="6" style="height: 50px;"></td></tr>
-      <tr><td colspan="6" style="height: 50px;"></td></tr>
-    </tbody>
-  </table>|
-</div>
-
 </body>
 </html>

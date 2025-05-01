@@ -17,14 +17,14 @@ def login():
         contrasena = request.form["contrasena"]
 
         cur = mysql.connection.cursor()
-        cur.execute("SELECT * FROM usuario WHERE u_correo = %s", (correo,))
+        cur.execute("SELECT * FROM Usuarios WHERE Correo = %s", (correo,))
         user = cur.fetchone()
         cur.close()
 
-        if user and check_password_hash(user[5], contrasena):
+        if user and check_password_hash(user[4], contrasena):
             session["usuario_id"] = user[0]  # id_usuario
-            session["correo"] = user[4]      # u_correo
-            session["rol"] = user[6]          # rol
+            session["correo"] = user[3]      # u_correo
+            session["rol"] = user[5]          # rol
             flash("¡Bienvenido!", "success")
             return redirect(url_for("index"))  # Cambiar luego a tu dashboard real
         else:
@@ -174,5 +174,16 @@ def index():
     if "usuario_id" not in session:
         return redirect(url_for("login"))
     return render_template("dashboard.html")
+
+@app.route("/probar-conexion")
+def probar_conexion():
+    try:
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT 1")  # Consulta mínima para probar conexión
+        cur.close()
+        return "✅ Conexión a MySQL exitosa"
+    except Exception as e:
+        return f"❌ Error al conectar con MySQL: {str(e)}"
+
 
 

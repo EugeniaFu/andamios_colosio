@@ -7,9 +7,9 @@ class Config:
 
     MYSQL_HOST = 'localhost'
     MYSQL_USER = 'root'
-    MYSQL_PASSWORD = '123456'  # Cambia aquí tu contraseña real
-    MYSQL_DB = 'andamios_c'
-    SECRET_KEY = os.urandom(24)
+    MYSQL_PASSWORD = 'luna18rz'  # Cambia aquí tu contraseña real// contraseña de quien lo corra 
+    MYSQL_DB = 'SistemaRentas'
+    SECRET_KEY = 'clave-segura-y-constante'  # o carga desde una variable de entorno
 
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587

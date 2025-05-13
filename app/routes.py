@@ -158,6 +158,38 @@ def nueva_contrasena():
 
 
 
+
+
+@app.route("/usuario")
+def perfil_usuario():
+    if "usuario_id" not in session:
+        return redirect(url_for("login"))
+
+    cur = mysql.connection.cursor()
+    cur.execute("""
+        SELECT nombre_usuario, u_apellido_paterno, u_apellido_materno, 
+               u_correo, rol, u_telefono, foto_perfil 
+        FROM usuario WHERE id_usuario = %s
+    """, (session["usuario_id"],))
+    datos = cur.fetchone()
+    cur.close()
+
+    usuario = {
+        "nombre": datos[0],
+        "apellido_paterno": datos[1],
+        "apellido_materno": datos[2],
+        "correo": datos[3],
+        "rol": datos[4],
+        "telefono": datos[5],
+        "foto": datos[6] or "default.png"  # Imagen por defecto si el campo está vacío
+    }
+
+    return render_template("usuario.html", usuario=usuario)
+
+
+
+
+
 #pendiente de terminar
 @app.route("/nueva-renta")
 def nueva_renta():
